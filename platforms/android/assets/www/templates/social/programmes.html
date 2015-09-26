@@ -1,0 +1,111 @@
+<ion-view title="Programmes Fee Details List">
+<!-- ======================
+  LEFT SIDE BUTTON
+  ====================== -->
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <!-- ======================
+  /END LEFT SIDE BUTTON
+  ====================== -->
+
+  <!-- ======================
+  RIGHT SIDE BUTTON
+  ====================== -->
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-search"></button>
+  </ion-nav-buttons>
+  <!-- ======================
+  /END RIGHT SIDE BUTTON
+  ====================== -->
+  
+   <!-- ======================
+  MAIN CONTENT SECTION
+  ====================== -->
+   <ion-content class="has-header gem-ion-content padding" >
+
+ <form class="form-inline">
+   
+       <!-- Search Box - standard ionic markup -->
+    <div class="item item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="search" placeholder="Filter By" ng-model="query" >
+      </label>
+    </div>
+</form> 
+    <!-- End Search Box -->
+    <!-- @Mel - Tried dynamic columns - works  repeat inside repeat  -->
+ <!-- <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="programs in programsList|limitTo:1" type="item-text-wrap" >
+
+
+        <h2>{{programs.BATCH}}</h2>
+        <p>{{programs.Styles}}</p>
+         <p>{{programs.Duration}}</p>
+         <p>{{programs.ClassesPerMonth}}</p>
+         <p>{{programs.MonthsPaid}}</p>
+          <p>{{programs.Price}}</p>
+            <h2>ID {{programs}}</h2>
+                 <div ng-repeat="(key, value) in programs">
+                    {{key}} 
+                </div> 
+
+
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+ -->
+
+    <table wt-responsive-table class="table table-bordered table-striped tablesort-sortable padding" ts-wrapper>
+    
+        <thead>
+          <tr >
+            <th ts-criteria="STYLES">Dance Styles </th>
+            <th ts-criteria="PRICE">Price</th>
+            <th ts-criteria="SESSIONSPERWEEK">Session/Week</th>
+            <th ts-criteria="CLASSESPERMONTH">Classes/Month</th>
+            <th ts-criteria="PAYMENTSCHEDULE">Payment Validity</th>
+            <th ts-criteria="BATCH">Batch</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="programs in programsList | filter: query |orderBy:'BATCH'" ts-repeat>
+            <td style="text-align:left">{{programs.STYLES}}</td>
+            <td>{{programs.PRICE | currency: "₹"}}</td>
+            <td>{{programs.SESSIONSPERWEEK}}</td>
+            <td>{{programs.CLASSESPERMONTH}}</td>
+            <td>{{programs.PAYMENTSCHEDULE}} months</td>
+            <td>{{programs.BATCH}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    
+<!-- 
+  <div class="form-group">
+    <div class="col-sm-12">
+      <p>Columns</p>
+      <div ng-repeat="c in all_columns">
+        <label>
+          <input type="checkbox" ng-model="c.checked"> {{ c.title }}
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th ng-repeat="c in ordered_columns">{{ c.title }}
+        </th>
+      </tr>
+      <tbody>
+        <tr ng-repeat="d in data">
+          <td ng-repeat="c in ordered_columns">{{ d[c.title] }}</td>
+        </tr>
+      </tbody>
+  </table> -->
+  </ion-content>
+</ion-view>

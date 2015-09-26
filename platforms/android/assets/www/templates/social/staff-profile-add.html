@@ -1,0 +1,100 @@
+<!-- Title for header bar (refer to www/index.html) -->
+<ion-view title="Add New Staff Member">
+  <!-- ======================
+  LEFT SIDE BUTTON
+  ====================== -->
+
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+  <!-- ======================
+  RIGHT SIDE BUTTON
+  ====================== -->
+
+  <ion-nav-buttons side="right">
+    <button  class="button button-icon icon ion-checkmark-circled"  > Add </button>
+  </ion-content>
+  </ion-nav-buttons>
+  
+  <!-- ======================
+  MAIN CONTENT SECTION
+  ====================== -->
+  <ion-content class="has-header gem-ion-content profile-edit" >
+
+    <!-- ======================
+    GEMIONIC PROFILE ADD PICTURE BANNER
+    ====================== -->
+    <div class="gem-profile-media">
+      <div class="gem-profile-details profile2">
+        <div class="text-center">
+ <img ng-show="imgURI !== null" ng-src="data:image/jpeg;base64,{{imgURI}}" ng-model="staffData.photoImage">
+    <img ng-show="imgURI === null" ng-src="http://placehold.it/130x130">
+
+       <!--  <button type="submit" class="button button-icon icon ion-checkmark-circled" ng-click="getPhoto()">  -->
+         <div class="text-center">
+          <button class="button button-icon icon ion-plus-circled" ng-click="getPhoto()"></button>
+          <p class="uppercase">Click to add photo</p>
+        </div>
+       </div>
+      </div>
+    </div>
+    <!-- ======================
+    END GEMIONIC PROFILE ADD PICTURE BANNER
+    ====================== -->
+      <form ng-submit="staffMemberAdd(staffData)" >
+
+    <!-- Standard Ionic List -->
+    <div class="list">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">First Name*</span>
+        <input type="text" placeholder="Enter firstname" ng-model="staffData.firstname">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Last Name*</span>
+        <input type="text" placeholder="Enter surname" ng-model="staffData.lastname">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Email</span>
+        <input type="text" placeholder="Enter emailid (optional)" ng-model="staffData.emailid">
+      </label>
+       <label class="item item-input item-stacked-label">
+        <span class="input-label">Phone</span>
+        <input type="text" placeholder="Enter MobileNo (optional)" ng-model="staffData.mobileno">
+      </label>
+       <label class="item item-input item-stacked-label">
+        <span class="input-label">Alternate Phone</span>
+        <input type="text" placeholder="Enter alternate contact no (optional)" ng-model="staffData.alternatephone">
+      </label>     
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Address </span>
+        <textarea  placeholder="Enter your local address here (optional)" ng-model="staffData.address"></textarea>
+      </label>
+         <div class="text-center">
+         
+           
+              <button type="submit" class="button button-royal"  data-ng-disabled="!staffData.firstname || !staffData.lastname || !staffData.emailid  || !staffData.address || !staffData.mobileno"> Register Me</button>
+      </div>
+
+    </div>
+
+
+   <!-- Separator Title (for forms and mini headings) -->
+<!--     <div class="profile-separator-title"><i class="ion-gear-a"></i> Account Settings</div>  -->
+
+    <!-- Standard Ionic List -->
+    <!-- <div class="list">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Email/Username</span>
+        <input type="text" placeholder="something@something.com">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Password</span>
+        <input type="password" value="vdvvdv">
+      </label>
+    </div> -->
+
+ </form> 
+
+
+</ion-view>

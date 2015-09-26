@@ -1,0 +1,26 @@
+<ion-popover-view >
+ <ion-header-bar>
+      <h1 class="title">Is this You ? </h1>
+    </ion-header-bar>
+    
+    <ion-content ng-model="settings.enableFriends" class="has-header gem-ion-content profile-edit" >
+        MEMBER -
+<!--         {{popover.staffMember || json}}
+ --> 
+    <!-- <div ng-if="popover.staffMember.PHOTO === null || popover.staffMember.PHOTO === undefined" >AAA
+            <img src="{{popover.staffMember.PHOTOURL}}" alt="" class="gem-friend-list-profile-pic"><br/>
+    </div>
+
+
+  <div ng-if="popover.staffMember.PHOTO !== null" >BBB
+          <img ng-src="data:image/jpeg;base64,{{popover.staffMember.PHOTO}}" alt="" class="gem-friend-list-profile-pic" ><br/>
+  </div>     -->          
+  {{popover.Member.FULLNAME}}
+
+      <div class="button-bar">
+          <button class="button button-positive" ng-click="MemberSignIn(popover.Member)"> YES </button>
+        <button class="button button-assertive" ng-click="closePopover()"> NO</button>
+      </div>
+    </ion-content>
+
+</ion-popover-view>

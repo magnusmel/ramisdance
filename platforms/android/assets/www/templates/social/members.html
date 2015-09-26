@@ -1,0 +1,146 @@
+<!-- Title for the ion view -->
+<ion-view title="Members List" ng-model="settings.enableFriends" cache-view="false">
+  <!-- ======================
+  LEFT SIDE BUTTON
+  ====================== -->
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <!-- ======================
+  END LEFT SIDE BUTTON
+  ====================== -->
+
+  <!-- ======================
+  RIGHT SIDE BUTTON
+  ====================== -->
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-search"></button>
+  </ion-nav-buttons>
+  <!-- ======================
+  RIGHT SIDE BUTTON
+  ====================== -->
+  
+  <!-- ======================
+  MAIN CONTENT SECTION
+  ====================== -->
+  <ion-content class="has-header gem-ion-content">
+    <!-- Standard Ionic Markup for search -->
+
+ <form class="form-inline">
+   
+       <!-- Search Box - standard ionic markup -->
+    <div class="item item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="search" placeholder="Search" ng-model="query.USERNAME" >
+      </label>
+    </div>
+</form> 
+<!-- 
+    <div class="item item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Search">
+      </label>
+    </div>    -->
+
+    <!-- End Search box-->
+     <!-- standard small heading title -->
+         <div class="label-title">{{Members.length}} Members</div>
+<ion-refresher pulling-text="Pull to refresh" on-refresh="doRefresh()">
+</ion-refresher>
+    <!-- end title 
+    ng-hold="showPopover($event,{{Member}})"  ng-bind="Member" 
+
+    -->
+     <ion-list class="list gem-friend-list" ng-repeat="Member in Members | filter:query:search" type="item-text-wrap"  >
+        <div ng-switch on="checkMemberSignedStatus(Member)">
+            <div ng-switch-when="1">
+       
+          <ion-item class="item hoverme"> 
+
+               <a ng-click="openPopover($event,Member)"  > 
+
+                    <!-- Friend Name, Status Icon and Status Update -->
+                    <div ng-if="Member.PHOTO == null" class="gem-friend-list-text">
+                    <!-- thumb image (round) -->
+                    <img  ng-src="{{Member.PHOTOURL}}" alt="" class="gem-friend-list-profile-pic"> <!-- End Image - absolute left/top -->
+<!--                       <pre> {{Member || json }}</pre>
+ -->                   
+                      <b>{{Member.FULLNAME}}</b>  
+                    
+                      <span class="signature"><i class="icon ion-record" ng-class="Member.STATUS=='Active' ? 'gem-color-success' : 'gem-color-default'"  ></i> {{Member.STATUS}} | "Last SignIn Date" | {{Member.LASTSEENDATE}}    </span>
+                      <!-- gem-color-default
+                      gem-color-danger -->
+
+                    </div>
+
+              <div ng-if="Member.PHOTO != null" class="gem-friend-list-text">
+                    <!-- thumb image (round) -->
+                    <img ng-src="data:image/jpeg;base64,{{Member.PHOTO}}" alt="" class="gem-friend-list-profile-pic"> <!-- End Image - absolute left/top -->
+<!--                       <pre> {{Member || json }}</pre>
+ -->                   
+                      <b>{{Member.FULLNAME}}</b>  
+                    
+                      <span class="signature"><i class="icon ion-record" ng-class="Member.STATUS=='Active' ? 'gem-color-success' : 'gem-color-default'"  ></i> {{Member.STATUS}} | "Last SignIn Date" | {{Member.LASTSEENDATE}}    </span>
+                      <!-- gem-color-default
+                      gem-color-danger -->
+
+                    </div>
+
+                  </a>
+
+
+            </div> 
+      </ion-item>
+            <!-- switch case 1 end -->
+            <div ng-switch-default>
+             <ion-item class="item gem-signedin"> 
+
+                 <!-- Friend Name, Status Icon and Status Update -->
+            <div ng-if="Member.PHOTO == null" class="gem-friend-list-text ">            
+
+            <!-- thumb image (round) -->
+            <img ng-src="{{Member.PHOTOURL}}" alt="" class="gem-friend-list-profile-pic"> <!-- End Image - absolute left/top -->
+
+              <b>{{Member.FULLNAME}}</b>  
+
+                <span class="signature"><i class="icon ion-record" ng-class="Member.STATUS=='Active' ? 'gem-color-success' : 'gem-color-default'"  ></i> {{Member.STATUS}} | "Last SignIn Date" | {{Member.LASTSEENDATE}}    </span>
+
+              <!-- gem-color-default
+              gem-color-danger -->
+            </div>
+
+            <div ng-if="Member.PHOTO != null" class="gem-friend-list-text">            
+
+            <!-- thumb image (round) -->
+            <img ng-src="data:image/jpeg;base64,{{Member.PHOTO}}" alt="" class="gem-friend-list-profile-pic"> <!-- End Image - absolute left/top -->
+
+              <b>{{Member.FULLNAME}}</b>  
+
+                <span class="signature"><i class="icon ion-record" ng-class="Member.STATUS=='Active' ? 'gem-color-success' : 'gem-color-default'"  ></i> {{Member.STATUS}} | "Last SignIn Date" | {{Member.LASTSEENDATE}}    </span>
+              <!-- gem-color-default
+              gem-color-danger -->
+            </div>
+                   <span>   <i class="icon ion-checkmark gem-color-success" >  You are signed in !</i> </span>
+
+          </div><!-- switch case 2 end -->
+
+        </div><!-- ng-switch-END -->
+
+            <!-- end -->
+      </ion-item>
+    </ion-list>
+
+    <!-- standard small heading title -->
+    <!-- end title -->
+
+    <!-- ======================
+    GEMIONIC FRIEND LIST (VERTICAL LIST)
+    ====================== -->
+
+  </ion-content>
+  <!-- ======================
+  END MAIN CONTENT SECTION
+  ====================== -->
+</ion-view>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    id="com.nilaf.plugin.AS3Uploader"
+    version="1.0.0">
+
+    <name>AS3Uploader</name>
+
+  <description>
+    Amazon s3 uploader 
+  </description>
+
+  <engines>
+    <engine name="cordova" version=">=2.7.0" />
+  </engines>
+
+
+  <!-- ios -->
+  <platform name="ios">
+
+    <config-file target="config.xml" parent="/*">
+      <feature name="AS3Uploader">
+        <param name="ios-package" value="AS3Uploader"/>
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/AS3Uploader.h" />
+    <source-file src="src/ios/AS3Uploader.m" />
+
+
+    <!-- AFNetworking -->
+    <header-file src="src/ios/AFNetworking/AFHTTPRequestOperation.h" />
+    <source-file src="src/ios/AFNetworking/AFHTTPRequestOperation.m" />
+
+    <header-file src="src/ios/AFNetworking/AFSecurityPolicy.h" />
+    <source-file src="src/ios/AFNetworking/AFSecurityPolicy.m" />
+
+
+    <header-file src="src/ios/AFNetworking/AFURLConnectionOperation.h" />
+    <source-file src="src/ios/AFNetworking/AFURLConnectionOperation.m" />
+
+    <header-file src="src/ios/AFNetworking/AFURLRequestSerialization.h" />
+    <source-file src="src/ios/AFNetworking/AFURLRequestSerialization.m" />
+
+    <header-file src="src/ios/AFNetworking/AFHTTPRequestOperationManager.h" />
+    <source-file src="src/ios/AFNetworking/AFHTTPRequestOperationManager.m" />
+
+
+    <header-file src="src/ios/AFNetworking/AFURLResponseSerialization.h" />
+    <source-file src="src/ios/AFNetworking/AFURLResponseSerialization.m" />
+
+    <header-file src="src/ios/AFNetworking/AFNetworkReachabilityManager.h" />
+    <source-file src="src/ios/AFNetworking/AFNetworkReachabilityManager.m" />
+
+    <header-file src="src/ios/AFNetworking/AFURLSessionManager.h" />
+    <source-file src="src/ios/AFNetworking/AFURLSessionManager.m" />
+
+    <header-file src="src/ios/AFNetworking/AFHTTPSessionManager.h" />
+    <source-file src="src/ios/AFNetworking/AFHTTPSessionManager.m" />
+
+    <header-file src="src/ios/AFNetworking/AFNetworking.h" />
+
+    <!-- AFAmazonS3Client -->
+    <header-file src="src/ios/AFAmazonS3Client/AFAmazonS3Manager.h" />
+    <source-file src="src/ios/AFAmazonS3Client/AFAmazonS3Manager.m" />
+    <header-file src="src/ios/AFAmazonS3Client/AFAmazonS3RequestSerializer.h" />
+    <source-file src="src/ios/AFAmazonS3Client/AFAmazonS3RequestSerializer.m" />
+
+  </platform>
+</plugin>
