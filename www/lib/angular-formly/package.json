@@ -82,7 +82,7 @@
     "api-check": "^7.0.0"
   },
   "devDependencies": {
-    "angular": "1.4.5",
+    "angular": "1.8.0",
     "angular-mocks": "1.4.5",
     "api-check": "^7.3.0",
     "babel": "5.8.23",
