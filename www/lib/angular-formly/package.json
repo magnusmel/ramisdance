@@ -112,7 +112,7 @@
     "karma-sinon-chai": "1.0.0",
     "karma-webpack": "1.7.0",
     "kcd-common-tools": "1.0.0-beta.23",
-    "lodash": "3.10.1",
+    "lodash": "4.17.20",
     "mocha": "2.3.2",
     "ng-annotate": "1.0.2",
     "ng-annotate-loader": "0.0.10",
